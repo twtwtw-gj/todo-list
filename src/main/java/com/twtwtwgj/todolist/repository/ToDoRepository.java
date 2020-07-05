@@ -8,9 +8,5 @@ import java.util.List;
 
 @Repository
 public interface ToDoRepository extends JpaRepository<ToDo, Integer> {
-    @Override
-    public List<ToDo> findAll();
 
-    @Override
-    public ToDo save(ToDo toDo);
 }
