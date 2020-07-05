@@ -1,9 +1,8 @@
 package com.twtwtwgj.todolist.controller;
 
 import com.twtwtwgj.todolist.entity.ToDo;
-import com.twtwtwgj.todolist.repository.ToDoRepository;
+import com.twtwtwgj.todolist.service.ToDoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,17 +13,17 @@ import java.util.List;
 @RestController
 public class ToDoController {
     @Autowired
-    private ToDoRepository toDoRepository;
+    private ToDoService toDoService;
 
     @GetMapping("/todo")
     public List<ToDo> getToDoList(){
-        return toDoRepository.findAll();
+        return toDoService.findAll();
     }
 
     @PostMapping("/todo")
     public ToDo postToDo(@RequestParam("id") int id, @RequestParam("name") String name){
         final ToDo toDo = new ToDo(id, name);
 
-        return toDoRepository.save(toDo);
+        return toDoService.save(toDo);
     }
 }
