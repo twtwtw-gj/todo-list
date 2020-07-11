@@ -13,19 +13,19 @@ public class ToDoController {
     private ToDoService toDoService;
 
     @GetMapping("/todo")
-    public List<ToDo> getToDoList(){
+    public List<ToDo> getToDoList() {
         return toDoService.findAll();
     }
 
     @PostMapping("/todo")
-    public ToDo postToDo(@RequestParam("id") int id, @RequestParam("name") String name){
+    public ToDo postToDo(final @RequestParam("id") int id, final @RequestParam("name") String name) {
         final ToDo toDo = new ToDo(id, name);
 
         return toDoService.save(toDo);
     }
 
     @DeleteMapping("/todo")
-    public void deleteToDo(@RequestParam("id") int id){
+    public void deleteToDo(final @RequestParam("id") int id) {
         toDoService.delete(id);
     }
 }
