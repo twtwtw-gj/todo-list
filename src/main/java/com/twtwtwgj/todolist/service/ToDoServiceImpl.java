@@ -15,17 +15,17 @@ public class ToDoServiceImpl implements ToDoService {
     private ToDoRepository toDoRepository;
 
     @Override
-    public List<ToDo> findAll(){
+    public List<ToDo> findAll() {
         return toDoRepository.findAll();
     }
 
     @Override
-    public ToDo save(ToDo toDo){
+    public ToDo save(final ToDo toDo) {
         return toDoRepository.save(toDo);
     }
 
     @Override
-    public void delete(int id){
+    public void delete(final int id) {
         toDoRepository.deleteById(id);
     }
 }
