@@ -4,11 +4,12 @@ import com.twtwtwgj.todolist.entity.ToDo;
 import com.twtwtwgj.todolist.repository.ToDoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class ToDoServiceImpl implements ToDoService {
     @Autowired
     private ToDoRepository toDoRepository;
