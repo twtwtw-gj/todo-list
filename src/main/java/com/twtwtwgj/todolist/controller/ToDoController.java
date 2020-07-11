@@ -3,10 +3,7 @@ package com.twtwtwgj.todolist.controller;
 import com.twtwtwgj.todolist.entity.ToDo;
 import com.twtwtwgj.todolist.service.ToDoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,5 +22,10 @@ public class ToDoController {
         final ToDo toDo = new ToDo(id, name);
 
         return toDoService.save(toDo);
+    }
+
+    @DeleteMapping("/todo")
+    public void deleteToDo(@RequestParam("id") int id){
+        toDoService.delete(id);
     }
 }
